@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block header_h1 %}Bienvenido{% endblock header_h1 %}
+
+{% block main %}
+
+{% block subtitulo %}
+Listado de Ropa
+{% endblock subtitulo %}
+
+<div>
+    <a href={% url "inicio:nueva_ropa" %} class="boton">Agregar ropa</a>
+    
+</div>
+
+<div>
+    {% if ropas %}
+<ul>
+    {% for ropa in ropas %}
+    <li>{{ropa}} 
+        | <a href={% url "inicio:ver_ropa" ropa.id %}>Ver más</a>
+        | <a href={% url "inicio:editar_ropa" ropa.id %}>Editar</a> 
+        | <a href={% url "inicio:eliminar_ropa" ropa.id %}>Eliminar</a> 
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No se encontraron resultados.</p>
+{% endif %}
+
+</div>
+
+{% endblock main %}

@@ -1,0 +1,23 @@
+{% extends "inicio/index.html" %}
+
+
+{% block head_title %}
+Agregar ropa
+{% endblock head_title %}
+
+{% block header_h1 %}
+Agregar ropa
+{% endblock header_h1 %}
+
+{% block main %}
+
+<form action="{% url "inicio:nueva_ropa" %}" method="POST">
+    {% csrf_token %}
+
+    {{form}}
+
+    <button>Agregar</button>
+
+</form>
+
+{% endblock main %}

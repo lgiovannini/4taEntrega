@@ -1,0 +1,1 @@
+Mi nombre es Lautaro Giovannini, el proyecto se trata de una web para una tienda de ropa, el usuario podrá ver la ropa disponible, cargar ropa nueva, editar la ropa existente.

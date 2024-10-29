@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Editar Ropa
+{% endblock title_head %}
+
+{% block header_h1 %}
+Editar {{ropa}}
+{% endblock header_h1 %}
+
+{% block main %}
+
+<form action={% url "inicio:editar_ropa" ropa.id %} method="POST">
+    {% csrf_token %}
+    {{form}}
+
+    <input type="submit" value="Enviar">
+</form>
+
+{% endblock main %}
