@@ -14,7 +14,7 @@ Agregar ropa
 <form action="{% url "inicio:nueva_ropa" %}" method="POST">
     {% csrf_token %}
 
-    {{form}}
+    {{form.as_p}}
 
     <button>Confirmar</button>
 

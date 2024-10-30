@@ -1,4 +1,5 @@
 from django import forms
+from .models import Ropa
 
 class RopaFormBase(forms.Form):
     tipo = forms.CharField(max_length=15)
@@ -7,7 +8,10 @@ class RopaFormBase(forms.Form):
     descripcion = forms.CharField(max_length=200)
 
 
-class EditarRopaForm(RopaFormBase):...
+class EditarRopaForm(RopaFormBase):
+    class Meta:
+        model = Ropa
+        fields = ['tipo', 'marca', 'fecha', 'descripcion', 'imagen']
     
 class BuscarRopaForm(forms.Form):
     tipo = forms.CharField(max_length=15, required=False)

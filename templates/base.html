@@ -37,21 +37,24 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href= {% url "inicio:buscar_ropa" %}>Buscar</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href= {% url "inicio:about" %}>Sobre Nosotros</a></li>
                         {% if request.user.is_authenticated %}
-                        <li><a class='btn btn-secondary' href={% url "usuarios:perfil" %} >
-                            <img src={{request.user.extradata.avatar.url}} alt="" height='40px'>
-                            {{request.user.username}}
-
-                        </a></li>
-                        <form action="{% url "usuarios:logout" %}" method='POST'>
-                            {% csrf_token %}
-                            <input type="submit" class='btn btn-secondary' value='Cerrar Sesion'>
-                        </form>
-            
+                        <li>
+                        <a class="btn btn-secondary" href="{% url 'usuarios:editar_perfil' %}">
+                        {% if request.user.extradata.avatar %}
+                        <img src="{{ request.user.extradata.avatar.url }}" alt="" height="40px">
                         {% else %}
-                        <a href={% url "usuarios:login" %}>Iniciar Sesion</a>
-                        <a class='btn btn-info' href={% url "usuarios:register" %}>Registrarse</a>
+                        <i class="fa fa-user"></i>
                         {% endif %}
-
+                        {{ request.user.username }}
+                        </a>
+            </li>
+            <form action="{% url 'usuarios:logout' %}" method="POST">
+                {% csrf_token %}
+                <input type="submit" class="btn btn-secondary" value="Cerrar Sesión">
+            </form>
+            {% else %}
+            <li><a class="nav-item py-3 px-0 mx-0 mx-lg-1" href="{% url 'usuarios:login' %}">Iniciar Sesión</a></li>
+            <li><a class="nav-item py-3 px-0 mx-0 mx-lg-1" href="{% url 'usuarios:register' %}">Registrarse</a></li>
+            {% endif %}
                     </ul>
                 </div>
             </div>

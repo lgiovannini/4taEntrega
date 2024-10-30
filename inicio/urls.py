@@ -3,7 +3,8 @@ from inicio import views
 from inicio.views import (
     inicio, 
     buscar_ropa, 
-    about)
+    about,
+    creacion_exitosa)
 
 app_name = 'inicio'
 
@@ -11,6 +12,7 @@ urlpatterns = [
     path('', inicio, name='inicio'),
     path('home/', views.home.as_view(), name='home'),
     path('about/', about, name='about'),
+    path('creacion-exitosa/', creacion_exitosa, name='creacion_exitosa'),
     path('nueva-ropa/', views.CargarRopa.as_view(), name='nueva_ropa'),
     path('buscar-ropa/', buscar_ropa, name='buscar_ropa'),
     path('ver-ropa/<int:pk>/', views.ver_ropa.as_view(), name='ver_ropa'),

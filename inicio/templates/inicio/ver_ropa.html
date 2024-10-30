@@ -10,14 +10,22 @@ Ropa
 {% endblock header_h1 %}
 
 {% block main %}
+<dl>
+    
+    <dd><img src="{{ ropa.imagen.url }}" alt="{{ ropa.tipo }}" height="300px"></dd>
 
-<ul>
-    <li>Tipo: {{ropa.tipo}}</li>
-    <li>Marca: {{ropa.marca}}</li>
-    <li>Fecha de Carga: {{ropa.fecha}}</li>
-    <li>Descripcion: {{ropa.descripcion}}</li>
-</ul>
-
+    <dt>Tipo:</dt>
+    <dd>{{ ropa.tipo }}</dd>
+  
+    <dt>Marca:</dt>
+    <dd>{{ ropa.marca }}</dd>
+  
+    <dt>Fecha de Carga:</dt>
+    <dd>{{ ropa.fecha }}</dd>
+  
+    <dt>Descripción:</dt>
+    <dd>{{ ropa.descripcion }}</dd>
+</dl>
 <a href={% url "inicio:buscar_ropa" %}>Volver</a>
 
 {% endblock main %}

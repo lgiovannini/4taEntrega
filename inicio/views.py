@@ -22,9 +22,19 @@ def about(request):
 class CargarRopa(CreateView):
     model = Ropa
     template_name = "inicio/nueva_ropa.html"
-    success_url = reverse_lazy('inicio:buscar_ropa')
-    fields = ['tipo', 'marca', 'fecha', 'descripcion']
+    success_url = reverse_lazy('inicio/creacion_exitosa.html')
+    fields = ['tipo', 'marca', 'fecha', 'descripcion', 'imagen']
+    
+    def get_form(self):
+        form = super().get_form()
+        form.fields['tipo'].widget.attrs.update({'placeholder': 'Ingrese el tipo de ropa'})
+        form.fields['marca'].widget.attrs.update({'placeholder': 'Ingrese la marca'})
+        form.fields['fecha'].widget.attrs.update({'placeholder': 'mm/dd/yyyy'})
+        form.fields['descripcion'].widget.attrs.update({'placeholder': 'Ingrese un detalle'})
+        return form
 
+def creacion_exitosa(request):
+    return render(request, 'inicio/creacion_exitosa.html')
 
 def buscar_ropa(request):
     
@@ -48,4 +58,4 @@ class editar_ropa(LoginRequiredMixin, UpdateView):
     model = Ropa
     template_name = 'inicio/editar_ropa.html'
     success_url = reverse_lazy('inicio:buscar_ropa')
-    fields = ['tipo', 'marca', 'descripcion']
+    fields = ['tipo', 'marca', 'descripcion', 'imagen']

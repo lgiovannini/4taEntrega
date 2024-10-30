@@ -10,7 +10,7 @@ Editar {{ropa}}
 
 {% block main %}
 
-<form action={% url "inicio:editar_ropa" ropa.id %} method="POST">
+<form action={% url "inicio:editar_ropa" ropa.id %} method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{form}}
 

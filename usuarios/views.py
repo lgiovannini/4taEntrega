@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth.decorators import login_required
@@ -30,9 +30,9 @@ def login(request):
 def register(request):
     
     formulario = FormRegistro()
-    if request.method == 'post':
+    if request.method == 'POST':
         
-        formulario = FormRegistro(request.post)
+        formulario = FormRegistro(request.POST)
         if formulario.is_valid():
             
             formulario.save()
@@ -50,7 +50,7 @@ def EditarPerfil(request):
     formulario = FormEdicion(instance=request.user, initial={'avatar': extradata.avatar})
     
     if request.method == 'POST':
-        formulario = FormEdicion(request.POST, request.FILES ,instance=request.user)
+        formulario = FormEdicion(request.POST, request.FILES, instance=request.user)
         if formulario.is_valid():
             
             new_avatar = formulario.cleaned_data.get('avatar')
