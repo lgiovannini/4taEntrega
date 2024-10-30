@@ -3,8 +3,7 @@ from inicio import views
 from inicio.views import (
     inicio, 
     buscar_ropa, 
-    about, 
-    editar_ropa)
+    about)
 
 app_name = 'inicio'
 

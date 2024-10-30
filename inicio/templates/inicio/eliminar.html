@@ -14,6 +14,7 @@ Eliminar {{ropa}}
     {% csrf_token %}
     <p>¿Estás seguro que deseas eliminar {{ropa}}?</p>
 
+    <a href={% url "inicio:home" %}>Volver</a>
     <input type="submit" value="Confirmar">
 </form>
 

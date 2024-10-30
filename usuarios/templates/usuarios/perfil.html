@@ -2,20 +2,20 @@
 
 
 {% block head_title %}
-Ropa
+Usuario
 {% endblock head_title %}
 
 {% block header_h1 %}
-{{ropa}}
+{{request.user.username}}
 {% endblock header_h1 %}
 
 {% block main %}
 
 <ul>
-    <li>Tipo: {{ropa.tipo}}</li>
-    <li>Marca: {{ropa.marca}}</li>
-    <li>Fecha de Carga: {{ropa.fecha}}</li>
-    <li>Descripcion: {{ropa.descripcion}}</li>
+    <li>Nombre: </li>
+    <li>Apellido: </li>
+    <li>Email: </li>
+    <li>Direccion:</li>
 </ul>
 
 <a href={% url "inicio:buscar_ropa" %}>Volver</a>

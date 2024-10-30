@@ -14,7 +14,8 @@ Editar {{ropa}}
     {% csrf_token %}
     {{form}}
 
-    <input type="submit" value="Enviar">
+    <a href={% url "inicio:home" %}>Volver</a>
+    <input type="submit" value="Confirmar">
 </form>
 
 {% endblock main %}

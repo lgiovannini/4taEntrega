@@ -1,7 +1,7 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from inicio.models import Ropa
-from inicio.forms import BuscarRopaForm, EditarRopaForm
+from inicio.forms import BuscarRopaForm
 from django.views.generic.edit import CreateView, UpdateView ,DeleteView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -23,7 +23,7 @@ class CargarRopa(CreateView):
     model = Ropa
     template_name = "inicio/nueva_ropa.html"
     success_url = reverse_lazy('inicio:buscar_ropa')
-    fields = ['tipo', 'marca', 'talle']
+    fields = ['tipo', 'marca', 'fecha', 'descripcion']
 
 
 def buscar_ropa(request):
@@ -48,4 +48,4 @@ class editar_ropa(LoginRequiredMixin, UpdateView):
     model = Ropa
     template_name = 'inicio/editar_ropa.html'
     success_url = reverse_lazy('inicio:buscar_ropa')
-    fields = ['tipo', 'marca', 'talle']
+    fields = ['tipo', 'marca', 'descripcion']
