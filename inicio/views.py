@@ -22,7 +22,7 @@ def about(request):
 class CargarRopa(CreateView):
     model = Ropa
     template_name = "inicio/nueva_ropa.html"
-    success_url = reverse_lazy('inicio/creacion_exitosa.html')
+    success_url = reverse_lazy('inicio:creacion_exitosa')
     fields = ['tipo', 'marca', 'fecha', 'descripcion', 'imagen']
     
     def get_form(self):

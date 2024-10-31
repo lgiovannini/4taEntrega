@@ -38,7 +38,7 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href= {% url "inicio:about" %}>Sobre Nosotros</a></li>
                         {% if request.user.is_authenticated %}
                         <li>
-                        <a class="btn btn-secondary" href="{% url 'usuarios:editar_perfil' %}">
+                        <a class="btn btn-secondary" href={% url 'usuarios:perfil' user.id %}>
                         {% if request.user.extradata.avatar %}
                         <img src="{{ request.user.extradata.avatar.url }}" alt="" height="40px">
                         {% else %}
@@ -87,7 +87,7 @@
         </header>
         <main>
             {% block main %}
-            Main
+        
             {% endblock main %}
         </main>
         <footer class="footer text-center">

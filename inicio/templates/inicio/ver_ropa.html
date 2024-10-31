@@ -12,7 +12,11 @@ Ropa
 {% block main %}
 <dl>
     
-    <dd><img src="{{ ropa.imagen.url }}" alt="{{ ropa.tipo }}" height="300px"></dd>
+    {% if ropa.imagen %}
+    <img src="{{ ropa.imagen.url }}" alt="{{ ropa.tipo }}" height="300px">
+    {% else %}
+    <p>No hay imagen disponible para esta prenda.</p>
+    {% endif %}
 
     <dt>Tipo:</dt>
     <dd>{{ ropa.tipo }}</dd>

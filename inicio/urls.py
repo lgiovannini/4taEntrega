@@ -17,6 +17,5 @@ urlpatterns = [
     path('buscar-ropa/', buscar_ropa, name='buscar_ropa'),
     path('ver-ropa/<int:pk>/', views.ver_ropa.as_view(), name='ver_ropa'),
     path('eliminar-ropa/<int:pk>/', views.eliminar_ropa.as_view(), name='eliminar_ropa'),
-    path('editar-ropa/<int:pk>/', views.editar_ropa.as_view(), name='editar_ropa'),
-    
+    path('editar-ropa/<int:pk>/', views.editar_ropa.as_view(), name='editar_ropa')
     ]
