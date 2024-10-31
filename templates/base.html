@@ -35,7 +35,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href= {% url "inicio:nueva_ropa" %}>Agregar</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href= {% url "inicio:buscar_ropa" %}>Buscar</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href= {% url "inicio:about" %}>Sobre Nosotros</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href= {% url "inicio:about" %}>Sobre Mi</a></li>
                         {% if request.user.is_authenticated %}
                         <li>
                         <a class="btn btn-secondary" href={% url 'usuarios:perfil' user.id %}>

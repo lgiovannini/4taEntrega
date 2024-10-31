@@ -11,13 +11,17 @@ Usuario
 
 {% block main %}
 
-<ul>
-    <li>Username: {{user.username}}</li>
-    <li>Nombre: {{ user.first_name }}</li>
-    <li>Apellido: {{ user.last_name }}</li>
-    <li>Email: {{ user.email }}</li>
-    <li>Avatar: <img src="{{ request.user.extradata.avatar.url }}" alt="" height="100px"></li>
-</ul>
+<p><b>Username:</b> {{ user.username }}</p>
+<p><b>Nombre:</b> {{ user.first_name }}</p>
+<p><b>Apellido:</b> {{ user.last_name }}</p>
+<p><b>Correo:</b> {{ user.email }}</p>
+{% if request.user.extradata.avatar %}
+<p><b>Avatar</b>
+    <img src="{{ request.user.extradata.avatar.url }}" alt="Avatar" height="100px">
+</p>
+{% else %}
+<p><b>Avatar:</b> No hay avatar definido.</p> 
+{% endif %}
 
 <a href={% url "usuarios:editar_perfil" %}>Editar Perfil</a>
 
